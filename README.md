@@ -2,6 +2,8 @@
 
 Este é o frontend da aplicação de gerenciamento de tarefas. O projeto utiliza React para criar uma interface de usuário dinâmica e interativa, e integra-se com o backend para realizar operações de CRUD (Create, Read, Update, Delete) nas tarefas.
 
+Demonstração ao vivo:  `https://sistema-crud-zeta.vercel.app/`
+
 ## Funcionalidades
 
 - **Autenticação de Usuário**: Registro e login de usuários com validação.
