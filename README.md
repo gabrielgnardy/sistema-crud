@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Projeto Frontend - Gerenciamento de Tarefas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é o frontend da aplicação de gerenciamento de tarefas. O projeto utiliza React para criar uma interface de usuário dinâmica e interativa, e integra-se com o backend para realizar operações de CRUD (Create, Read, Update, Delete) nas tarefas.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- **Autenticação de Usuário**: Registro e login de usuários com validação.
+- **Gerenciamento de Tarefas**: Criação, edição, visualização e exclusão de tarefas.
+- **Visualização e Edição de Tarefas**: Interface para listar tarefas e editar suas informações diretamente.
+- **Documentação da API**: Acesso à documentação da API através do Swagger.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Biblioteca para criar interfaces de usuário.
+  - Versão: ^18.3.1
+- **Material-UI (MUI)**: Biblioteca de componentes para React que fornece uma interface de usuário moderna e responsiva.
+  - **@mui/material**: ^6.0.1
+  - **@mui/icons-material**: ^6.0.1
+- **Emotion**: Biblioteca para estilização com CSS-in-JS.
+  - **@emotion/react**: ^11.13.3
+  - **@emotion/styled**: ^11.13.0
+- **Axios**: Biblioteca para realizar requisições HTTP.
+  - Versão: ^1.7.7
+- **React Router DOM**: Biblioteca para roteamento dentro da aplicação React.
+  - Versão: ^6.26.1
+- **Date-fns**: Biblioteca para manipulação de datas.
+  - Versão: ^3.6.0
+- **Testing Library**: Ferramentas para testes de componentes React.
+  - **@testing-library/react**: ^13.4.0
+  - **@testing-library/jest-dom**: ^5.17.0
+  - **@testing-library/user-event**: ^13.5.0
+- **Toolpad Core**: Biblioteca para construir e gerenciar aplicações.
+  - Versão: ^0.5.2
+- **React Scripts**: Scripts e configurações padrão para criar uma aplicação React.
+  - Versão: 5.0.1
+- **Web Vitals**: Biblioteca para medir a performance da web.
+  - Versão: ^2.1.4
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Configuração do Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instalação
 
-### `npm run build`
+1. **Clone o Repositório**:
+   ```bash
+   git clone https://github.com/gabrielgnardy/sistema-crud
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Navegue até o Diretório do Projeto:**
+   ```
+   cd sistema-crud
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Instale as Dependências:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+   ```
+   npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```
+## Configuração de Variáveis de Ambiente
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para configurar o projeto frontend, você precisará definir algumas variáveis de ambiente. Estas variáveis são usadas para configurar a URL base da API e outras configurações importantes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Criando o Arquivo `.env`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Crie um arquivo chamado `.env` na raiz do projeto, se ainda não existir. Adicione as seguintes variáveis de ambiente ao arquivo:
 
-## Learn More
+   ```
+REACT_APP_API_URL=http://localhost:5000/api
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `REACT_APP_API_URL`: URL base para o backend da API. Substitua `http://localhost:5000/api` pela URL onde seu backend está hospedado.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Utilizando Variáveis de Ambiente
 
-### Code Splitting
+No código React, você pode acessar as variáveis de ambiente usando `process.env`. Por exemplo, para fazer uma requisição HTTP utilizando Axios, você pode configurar a URL base da seguinte forma:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```javascript
+    import axios from 'axios';
 
-### Analyzing the Bundle Size
+    const api = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    });
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    export default api;
+    ```
+### Observações
 
-### Making a Progressive Web App
+- **Prefixo `REACT_APP_`**: No Create React App, todas as variáveis de ambiente acessíveis no código devem começar com o prefixo `REACT_APP_`. Isso garante que as variáveis sejam incluídas no bundle final da aplicação e possam ser acessadas através de `process.env`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Segurança**: Evite incluir informações sensíveis, como chaves de API ou credenciais, diretamente no arquivo `.env`. Para proteger dados sensíveis, use variáveis de ambiente no lado do servidor ou considere outras abordagens seguras para o gerenciamento de informações confidenciais.
 
-### Advanced Configuration
+- **Reinicie o Servidor de Desenvolvimento**: Após adicionar ou modificar variáveis de ambiente, é necessário reiniciar o servidor de desenvolvimento (`npm start`) para que as alterações sejam aplicadas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Escopo das Variáveis**: As variáveis definidas no arquivo `.env` só estarão disponíveis no contexto do frontend e não no backend. Certifique-se de configurar as variáveis de ambiente adequadas também no ambiente do servidor backend, se aplicável.
