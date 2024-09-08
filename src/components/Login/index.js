@@ -151,7 +151,7 @@ function Login() {
                       />
                     </Grid>
                     <Grid size={11} offset={1} display="flex" justifyContent="space-between" alignItems="center">
-                      <button className={`${styles.btnremember}`} onClick={handleClickOpen}>
+                      <button type='button' className={`${styles.btnremember}`} onClick={handleClickOpen}>
                         Esqueceu sua senha?
                       </button>
                     </Grid>

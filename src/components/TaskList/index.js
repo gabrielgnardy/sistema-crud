@@ -44,7 +44,7 @@ function TaskList() {
     <div>
       <Container maxWidth="lg">
         <Grid container justifyContent="start" spacing={2} marginBottom={2}>
-          <Grid size={2} display="flex" alignItems="start" height={"33px"}>
+          <Grid size={{md: 2}} display="flex" alignItems="start" height={"33px"}>
             <Paper
               component="form"
               sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, height: "100%" }}
@@ -63,7 +63,7 @@ function TaskList() {
               />
             </Paper>
           </Grid>
-          <Grid size={2} offset={8} display="flex" alignItems="start">
+          <Grid size={{md: 2}} offset={{md:8}} display="flex" alignItems="start">
             <TaskForm setTasks={handleTasks} />
           </Grid>
         </Grid>

@@ -97,7 +97,7 @@ function TaskForm({ setTasks }) {
               />
             </Grid>
             <Grid
-              justifyContent="flex-end" size={3} offset={6} sx={{ display: 'grid' }}>
+              justifyContent="flex-end" size={{md:3}} offset={{md: 3}} sx={{ display: 'grid' }}>
               <FormControlLabel
                 control={
                   <Switch
@@ -108,7 +108,7 @@ function TaskForm({ setTasks }) {
                 label="Tarefa Concluída"
               />
             </Grid>
-            <Grid justifyContent="flex-end" size={3} display="flex" alignItems="center">
+            <Grid justifyContent="flex-end" size={{md:5}} display="flex" alignItems="center">
               <Button variant="contained" type="submit" onClick={handleSubmit}>Salvar</Button>
               <Button variant="contained" sx={{ ml: 2 }} className={`${styles.btndelete}`} onClick={handleClose}>Cancelar</Button>
             </Grid>

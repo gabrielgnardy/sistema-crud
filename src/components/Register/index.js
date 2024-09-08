@@ -182,7 +182,7 @@ function Register() {
                       helperText={errors.confirmPassword}
                     />
                   </Grid>
-                  <Grid size={10} offset={1} display="flex" justifyContent="space-between" alignItems="center">
+                  <Grid marginBottom={3} size={10} offset={1} display="flex" justifyContent="space-between" alignItems="center">
                     <Button variant="outlined" onClick={handleRedirect}> Voltar</Button>
                     <Button variant="contained" type="submit">Criar</Button>
                   </Grid>

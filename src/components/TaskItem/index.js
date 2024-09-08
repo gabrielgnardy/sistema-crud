@@ -162,13 +162,13 @@ function TaskItem({ row, onTaskDeleted }) {
                     />
                   </Grid>
                   <Grid
-                    justifyContent="flex-start" size={6} sx={{ display: 'grid' }}>
+                    justifyContent="flex-start" size={{md: 6}} sx={{ display: 'grid' }}>
                     <Typography color='textDisabled' variant="subtitle1" gutterBottom>
                       <span style={{ fontWeight: 'bold' }} >Criado em:</span> {date} {completedDate && (<>| <span style={{ fontWeight: 'bold' }}>Concluído em: </span> {completedDate} </>)}
                     </Typography>
                   </Grid>
                   <Grid
-                    justifyContent="flex-end" size={3} sx={{ display: 'grid' }}>
+                    justifyContent="flex-end" size={{md: 3}} sx={{ display: 'grid' }}>
                     <FormControlLabel
                       control={
                         <Switch
@@ -181,7 +181,7 @@ function TaskItem({ row, onTaskDeleted }) {
                       label="Tarefa Concluída"
                     />
                   </Grid>
-                  <Grid justifyContent="flex-end" size={3} display="flex" alignItems="center">
+                  <Grid justifyContent="flex-end" size={{md: 3}} display="flex" alignItems="center">
 
                     {edit && (
                       <Button variant="contained" type="submit" onClick={handleToggleComplete}>Salvar</Button>
